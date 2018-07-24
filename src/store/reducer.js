@@ -12,7 +12,7 @@ const initialState = {
 
 const tick = state => {
   if (state.active) {
-    const { pile, playerOne, playerTwo, currentPlayer, winner } = state;
+    const { pile, playerOne, playerTwo, currentPlayer } = state;
 
     if (pile.length > 2) {
       const top = pile.length - 1;
@@ -69,11 +69,7 @@ const slap = (state, { player }) => {
     return state;
   }
 
-  const top = pile.length - 1;
-  const underTop = pile.length - 2;
-
-  const topCard = pile[top];
-  const underTopCard = pile[underTop];
+  const [underTopCard, topCard] = pile.slice(-2);
 
   console.log(topCard.value, underTopCard.value);
 
