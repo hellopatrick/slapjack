@@ -15,6 +15,6 @@ const thunk = store => next => action =>
     ? action(store.dispatch, store.getState)
     : next(action);
 
-const middleware = applyMiddleware(thunk);
+const middleware = applyMiddleware(thunk, logger);
 
 export default middleware;
