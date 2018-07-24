@@ -1,0 +1,18 @@
+.pile {
+  display: flex;
+  align-content: center;
+  max-width: 100px;
+}
+
+.pile .card {
+  height: 90px;
+  overflow: hidden;
+}
+
+.card:last-child {
+  overflow: visible;
+}
+
+.pile .card img {
+  height: 100%;
+}

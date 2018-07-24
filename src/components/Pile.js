@@ -1,21 +1,22 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 
-class Pile extends Component {
+import "./Pile.css";
+
+function Card({ card }) {
+  return (
+    <div className="card">
+      <img src={card.image} alt={card.value} />
+    </div>
+  );
+}
+
+class Pile extends PureComponent {
   render() {
-    const { pile } = this.props;
+    const { pile = [] } = this.props;
 
-    if (pile.length === 0) {
-      return <React.Fragment />;
-    }
+    const children = pile.slice(-5).map(card => <Card card={card} />);
 
-    const top = pile.length - 1;
-    const topCard = pile[top];
-
-    return (
-      <p>
-        <img src={topCard.image} />
-      </p>
-    );
+    return <div className="pile">{children}</div>;
   }
 }
 
